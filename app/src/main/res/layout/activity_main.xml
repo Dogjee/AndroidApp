@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbars="none"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#83FFFFFF"
+        android:id="@+id/ManHinh1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:visibility="gone"
+            android:layout_marginTop="330dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/wallmain4"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/textViewCityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="81dp"
+                android:text="Địa điểm"
+                android:textColor="#FF6666"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/white"
+                android:textSize="60sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCityName" />
+
+            <EditText
+                android:id="@+id/editTextNameSearch"
+                android:layout_width="220dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="25dp"
+                android:ems="10"
+                android:hint="Tên địa điểm"
+                android:inputType="textPersonName"
+                android:textColor="#ccc"
+                android:textColorHint="@color/light_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.152"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ImageViewTest"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="33dp"
+                android:src="@drawable/ic_baseline_search_24"
+                app:layout_constraintStart_toEndOf="@+id/editTextNameSearch"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewTempMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#fff"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.428"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTemperature" />
+
+            <TextView
+                android:id="@+id/textViewTempMin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="#66030303"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textViewTempMax"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTemperature" />
+
+            <TextView
+                android:id="@+id/textViewStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:textColor="#fff"
+                android:textSize="33sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTempMin" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RVWeather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/current" />
+
+            <TextView
+                android:id="@+id/current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
+
+
+            <Button
+                android:id="@+id/ButtonChangeActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="#00FFFFFF"
+                android:text="Dự báo tuần kế tiếp"
+                android:textAllCaps="false"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RVWeather" />
+
+            <Button
+                android:id="@+id/ButtonHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#00CCCCCC"
+                android:text="Xem lịch sử thời tiết"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ButtonChangeActivity" />
+            <View
+                android:id="@+id/linegoc"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#9AFFFFFF"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ButtonHistory"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="593dp" />
+            <RelativeLayout
+                android:id="@+id/containerKhongKhi"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linegoc"
+                >
+                <TextView
+                    android:id="@+id/chatluongkhongkhi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="không khí"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/kkIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/chatluongkhongkhi"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Chỉ số chất lượng không khí: "
+                    android:textColor="@color/light_white"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#9AFFFFFF"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/containerKhongKhi"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="593dp" />
+            <RelativeLayout
+                android:id="@+id/ContainerMucDeChiu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/MucDeChiu"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Độ ẩm"
+                    android:textColor="@color/light_white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/ValueDoAm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/MucDeChiu"
+                    android:layout_marginLeft="69dp"
+                    android:layout_marginTop="64dp"
+                    android:text="36%"
+                    android:textColor="#fff" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarDoAm"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@+id/MucDeChiu"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="26dp"
+                    android:indeterminateOnly="false"
+                    android:progress="60"
+                    android:progressDrawable="@drawable/customprogress"
+                    android:rotation="-50" />
+
+                <TextView
+                    android:id="@+id/MucDeChiu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="mức dễ chịu"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewCamGiac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/MucDeChiu"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_toRightOf="@+id/MucDeChiu"
+                    android:text="Cảm giác:"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueCamGiac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_toRightOf="@+id/textViewCamGiac"
+                    android:text="39"
+                    android:textColor="#B3000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewTuNgoai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewCamGiac"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/MucDeChiu"
+                    android:text="Tử ngoại:"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueTuNgoai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ValueCamGiac"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_toRightOf="@+id/textViewTuNgoai"
+                    android:text="39"
+                    android:textColor="#B3000000"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/lineRain"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#9AFFFFFF"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ContainerMucDeChiu"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="593dp" />
+
+            <RelativeLayout
+                android:id="@+id/ContainerRain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lineRain">
+
+                <TextView
+                    android:id="@+id/textViewKhaNangMua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Dự báo mưa"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/textViewKhaNangMua"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/raining" />
+
+                <TextView
+                    android:id="@+id/textViewTitleKhaNangMua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="70dp"
+                    android:text="Khả năng mưa"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueKhaNangMua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_toRightOf="@+id/textViewTitleKhaNangMua"
+                    android:text="Không"
+                    android:textColor="#B3000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewLuongMua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewTitleKhaNangMua"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Lượng mưa: "
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueLuongMua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ValueKhaNangMua"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/textViewLuongMua"
+                    android:text="Chưa có dữ liệu"
+                    android:textColor="#B3000000"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#9AFFFFFF"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ContainerRain"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="593dp" />
+
+            <RelativeLayout
+                android:id="@+id/ContainerMatTroiMocLan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line2">
+
+                <TextView
+                    android:id="@+id/textViewMatTroiMocLan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Mặt trời mọc/lặn"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/textViewMatTroiMocLan"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/sun" />
+
+                <TextView
+                    android:id="@+id/textViewMatTroiMoc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewMatTroiMocLan"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="60dp"
+                    android:text="Mặt trời mọc:"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueMatTroiMoc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="89dp"
+                    android:layout_toRightOf="@+id/textViewMatTroiMoc"
+                    android:text="17:00"
+                    android:textColor="#B3000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textViewMatTroiLan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewMatTroiMoc"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Mặt trời lặn:"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueMatTroiLan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ValueMatTroiMoc"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/textViewMatTroiLan"
+                    android:text="17:00"
+                    android:textColor="#B3000000"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#9AFFFFFF"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ContainerMatTroiMocLan"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="593dp" />
+
+            <RelativeLayout
+                android:id="@+id/ContainerWind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line3">
+
+                <TextView
+                    android:id="@+id/textViewGio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Gió"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="115dp"
+                    android:layout_height="115dp"
+                    android:layout_below="@id/textViewGio"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/winstock2" />
+
+                <TextView
+                    android:id="@+id/textViewTocDoGio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewGio"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="60dp"
+                    android:text="Tốc độ gió (m/s):"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/textViewHuongGio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textViewTocDoGio"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Hướng gió:"
+                    android:textColor="#F44336" />
+
+                <TextView
+                    android:id="@+id/ValueTocDoGio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_toRightOf="@+id/textViewTocDoGio"
+                    android:text="5"
+                    android:textColor="#B3000000"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/ValueHuongGio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/ValueTocDoGio"
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_toRightOf="@+id/textViewHuongGio"
+                    android:text="Đông Bắc"
+                    android:textColor="#B3000000"
+                    android:textSize="14sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/line4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#9AFFFFFF"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ContainerWind"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="593dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:text="OpenWeatherMap.Org"
+                android:textColor="#4DFFFFFF"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@id/line4" />
+
+            <ImageView
+                android:id="@+id/imageViewLocation"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.106"
+                app:layout_constraintStart_toEndOf="@+id/ImageViewTest"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_location_on_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

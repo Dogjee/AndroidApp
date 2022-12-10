@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="luong_mua">Lượng mưa</string>
+    <string name="do_am">Độ ẩm</string>
+    <string name="sunRise">Mặt trời mọc</string>
+    <string name="sunSet">Mặt trời lặn</string>
+    <string name="uv">Chỉ số UV</string>
+    <string name="tocgio">Tốc độ gió</string>
+    <string name="huonggio">Hướng gió</string>
+    <string name="may">Mây che phủ</string>
+
+
+</resources>

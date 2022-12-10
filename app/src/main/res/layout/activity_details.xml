@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/midnight3"
+    tools:context=".Details_Activity">
+
+    <TextView
+        android:id="@+id/detail_day"
+        android:text="Trong ngày"
+        android:gravity="center"
+        android:background="#578DB8"
+        android:textColor="#BA2626"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="50dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvHDate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp" />
+
+</LinearLayout>
